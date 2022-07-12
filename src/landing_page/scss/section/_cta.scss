@@ -1,0 +1,48 @@
+.cta_box {
+  padding: 20px 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include tablet {
+    flex-direction: row;
+  }
+
+  img {
+    width: calc(100vw - 40px);
+    margin: 10px 0 20px 0;
+    border-radius: $radius;
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &_text {
+    @include tablet {
+      width: 50%;
+    }
+    width: calc(100vw - 40px);
+    font-family: $rubik;
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      margin-left: 40px;
+    }
+
+
+    h2 {
+      font-size: 40px;
+      font-weight: $font-bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 30px 0 50px 0;
+    }
+  }
+}
+.cta_btn {
+  @include cta-button;
+}

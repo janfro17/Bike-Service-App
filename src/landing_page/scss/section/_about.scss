@@ -1,0 +1,78 @@
+.about_text {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  &_title {
+    @include section-title;
+    background-color: $navy;
+    color: $white;
+    text-align: center;
+    border-radius: $radius;
+  }
+
+  &_description {
+    @include standard-text {
+      text-align: justify;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    padding: 20px 0;
+    @include desktop {
+      padding: 20px 0 30px 0;
+    }
+  }
+
+}
+
+.about_boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_worker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $grey;
+    border-radius: $radius;
+    margin: 20px;
+    padding: 20px;
+
+
+
+    &_text {
+      //padding: 20px 0 40px 0;
+      @include desktop {
+        //padding: 0 0 30px 0;
+      }
+
+      > h4 {
+        @include text-title {
+          text-align: center;
+        }
+      }
+
+      > p {
+        @include standard-text {
+          text-align: justify;
+          line-height: 20px;
+        }
+        @include desktop {
+          //padding: 0 15px;
+        }
+      }
+    }
+
+    &_img {
+      height: 200px;
+      border-radius: 50%;
+    }
+  }
+}

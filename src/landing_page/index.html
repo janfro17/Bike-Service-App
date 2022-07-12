@@ -9,66 +9,88 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/6d1d77ffd3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<header>
+<header class="container">
     <ul class="benefits_list">
-        <li class="benefits_list_element"><i class="fa-regular fa-screwdriver-wrench"></i>30 dni gwarancji rozruchowej</li>
-        <li class="benefits_list_element"><i class="fa-regular fa-timer"></i>Szybki termin realizacji</li>
-        <li class="benefits_list_element"><i class="fa-regular fa-bicycle"></i>Zapewniony rower zastępczy</li>
-        <li class="benefits_list_element"><i class="fa-regular fa-money-bill-1-wave"></i>Atrakcyjne ceny</li>
+        <li class="benefits_list_element"><img src="assets/001-guarantee-certificate.png" alt="gwarancja">30 dni gwarancji rozruchowej</li>
+        <li class="benefits_list_element"><img src="assets/003-stopwatch.png" alt="zegar">Szybki termin realizacji</li>
+        <li class="benefits_list_element"><img src="assets/002-bicycle.png" alt="rower">Zapewniony rower zastępczy</li>
+        <li class="benefits_list_element"><img src="assets/004-hand.png" alt="pieniądze">Atrakcyjne ceny</li>
     </ul>
-    <div class="header_box container">
+    <div class="header_box">
         <div class="header_box_logo">
             <img src="assets/logo-bike.svg" alt="logo bike service">
             <h1>Bike Service</h1>
         </div>
         <nav class="header_box_menu">
             <ul class="header_box_menu_list">
-                <li class="header_box_menu_list_element">Zarezerwuj serwis</li>
-                <li class="header_box_menu_list_element">O nas</li>
-                <li class="header_box_menu_list_element">Dlaczego my?</li>
-                <li class="header_box_menu_list_element">Cennik</li>
-                <li class="header_box_menu_list_element">Kontakt</li>
+                <li class="header_box_menu_list_element">
+                    <a href="#">Zarezerwuj serwis</a>
+                    </li>
+                <li class="header_box_menu_list_element">
+                    <a href="#about">O nas</a></li>
+                <li class="header_box_menu_list_element">
+                    <a href="#benefits">Dlaczego my?</a></li>
+                <li class="header_box_menu_list_element">
+                    <a href="#prices">Cennik</a></li>
+                <li class="header_box_menu_list_element">
+                    <a href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </div>
 </header>
 <main>
-    <section class="cta">
-        <img class="cta_img" src="" alt="">
+    <section class="cta container">
         <div class="cta_box">
-            <div class="cta_box_text"></div>
-            <button class="cta_btn"></button>
+            <img src="assets/cta-background.png" alt="mechanic">
+            <div class="cta_box_text">
+                <h2 class="cta_title">Szybki, sprawny, skuteczny. Jednym słowem profesjonalny serwis Twojego roweru!</h2>
+                <p class="cta_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, sequi.</p>
+                <button class="cta_btn">Zarezerwuj serwis</button>
+            </div>
         </div>
     </section>
-    <section class="about">
-        <div class="about_text"></div>
+    <section id="about" class="about container">
+        <div class="about_text">
+            <h3 class="about_text_title">Poznaj naszą historię</h3>
+            <p class="about_text_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium ex, illo molestiae necessitatibus obcaecati placeat, possimus quis quod, reiciendis reprehenderit rerum saepe suscipit tempore ut vel voluptate. Ab atque, aut consectetur consequuntur dolor, dolorem eligendi fuga illum incidunt ipsum laboriosam libero minima nemo optio provident qui suscipit temporibus vero.</p>
+        </div>
         <div class="about_boxes">
             <div class="about_boxes_worker">
-                <img class="about_boxes_worker_img" src="" alt="">
-                <div class="about_boxes_worker_text"></div>
+                <img class="about_boxes_worker_img" src="assets/mech11.jpeg" alt="serwisant Jan">
+                <div class="about_boxes_worker_text">
+                    <h4 class="worker_name">Jan</h4>
+                    <p class="worker_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad atque blanditiis culpa dicta, dolore dolorem dolorum eligendi illo nemo neque perferendis praesentium quasi quis reiciendis saepe sequi temporibus ut voluptas.</p>
+
+                </div>
             </div>
             <div class="about_boxes_worker">
-                <img class="about_boxes_worker_img" src="" alt="">
-                <div class="about_boxes_worker_text"></div>
+                <img class="about_boxes_worker_img" src="assets/mech12.jpeg" alt="serwisant Adam">
+                <div class="about_boxes_worker_text">
+                    <h4 class="worker_name">Adam</h4>
+                    <p class="worker_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolorem eaque facilis nam necessitatibus nemo neque nobis odio perspiciatis quas quisquam quo repellendus reprehenderit sequi ullam velit, voluptas voluptate voluptatibus?</p>
+
+                </div>
             </div>
             <div class="about_boxes_worker">
-                <img class="about_boxes_worker_img" src="" alt="">
-                <div class="about_boxes_worker_text"></div>
+                <img class="about_boxes_worker_img" src="assets/mech13.jpeg" alt="serwisant Karol">
+                <div class="about_boxes_worker_text">
+                    <h4 class="worker_name">Karol</h4>
+                    <p class="worker_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque esse expedita illo incidunt labore maxime necessitatibus perspiciatis repellendus saepe sapiente sequi, similique vero. Aliquam architecto blanditiis dicta doloremque hic, unde.</p>
+                </div>
             </div>
         </div>
     </section>
-    <section class="benefits">
+    <section id="benefits" class="benefits">
         <div class="benefits_box"></div>
         <div class="benefits_opinions">
             <div class="benefits_opinions_box"></div>
             <div class="benefits_opinions_box"></div>
         </div>
     </section>
-    <section class="prices">
+    <section id="prices" class="prices">
         <div class="prices_text"></div>
         <div class="prices_box">
             <div class="prices_box_titles"></div>
@@ -79,7 +101,7 @@
             </div>
         </div>
     </section>
-    <section class="contact">
+    <section id="contact" class="contact">
         <div class="contact_box">
             <div class="contact_box_info"></div>
             <form action="" class="contact_box_form"></form>
@@ -91,5 +113,6 @@
     <div class="social_box"></div>
     <div class="copyrights_box"></div>
 </footer>
+<script src="js/main.js"></script>
 </body>
 </html>
