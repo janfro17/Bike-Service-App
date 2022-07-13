@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0-modified | 20110126
    License: none (public domain)
@@ -409,12 +410,12 @@ a {
   list-style: outside none none;
   margin: 0 1.5em;
 }
-.header_box_menu_list a {
+.header_box_menu_list a, .header_box_menu_list span {
   color: rgb(0, 0, 0);
   position: relative;
   display: inline-block;
 }
-.header_box_menu_list a:before {
+.header_box_menu_list a:before, .header_box_menu_list span:before {
   position: absolute;
   content: "";
   transition: all 0.35s ease;
@@ -426,10 +427,10 @@ a {
   border-top: 3px solid #34495e;
   border-bottom: 3px solid #34495e;
 }
-.header_box_menu_list a:hover {
+.header_box_menu_list a:hover, .header_box_menu_list span:hover {
   color: #ffffff;
 }
-.header_box_menu_list a:hover:before {
+.header_box_menu_list a:hover:before, .header_box_menu_list span:hover:before {
   opacity: 1;
   top: 0;
   bottom: 0;
@@ -486,13 +487,23 @@ body {
   }
 }
 .cta_box_text h2 {
-  font-size: 40px;
+  font-size: 24px;
   font-weight: 500;
   text-transform: uppercase;
 }
+@media (min-width: 1024px) {
+  .cta_box_text h2 {
+    font-size: 32px;
+  }
+}
 .cta_box_text p {
-  font-size: 20px;
+  font-size: 16px;
   margin: 30px 0 50px 0;
+}
+@media (min-width: 1024px) {
+  .cta_box_text p {
+    font-size: 20px;
+  }
 }
 
 .cta_btn {
@@ -540,6 +551,168 @@ body {
   transform: translateY(0);
 }
 
+.prices_text h3 {
+  font-family: "Rubik", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgb(20, 33, 61);
+  color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+}
+.prices_text p {
+  font-family: "Rubik", sans-serif;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 20px;
+  padding: 30px;
+}
+
+@media (min-width: 1024px) {
+  .prices_box_items {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+.prices_seasons_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background-color: rgb(252, 163, 17);
+  line-height: 32px;
+  border-radius: 0.25rem;
+}
+.prices_seasons_list * {
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+}
+.prices_seasons_list li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0 1.5em;
+}
+.prices_seasons_list a, .prices_seasons_list span {
+  color: rgb(0, 0, 0);
+  position: relative;
+  display: inline-block;
+}
+.prices_seasons_list a:before, .prices_seasons_list span:before {
+  position: absolute;
+  content: "";
+  transition: all 0.35s ease;
+  opacity: 0;
+  top: 25%;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  border-top: 3px solid #34495e;
+  border-bottom: 3px solid #34495e;
+}
+.prices_seasons_list a:hover, .prices_seasons_list span:hover {
+  color: #ffffff;
+}
+.prices_seasons_list a:hover:before, .prices_seasons_list span:hover:before {
+  opacity: 1;
+  top: 0;
+  bottom: 0;
+}
+
+.prices_column {
+  padding: 30px;
+  border-radius: 0.25rem;
+  margin: 32px 0;
+  font-family: "Rubik", sans-serif;
+  color: rgb(0, 0, 0);
+}
+@media (min-width: 1024px) {
+  .prices_column {
+    margin: 32px;
+    width: 400px;
+  }
+}
+.prices_column_title {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px;
+  text-transform: uppercase;
+  padding: 0 0 10px 0;
+}
+.prices_column_subtitle {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+.prices_column_price {
+  font-size: 48px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+.prices_column_price:after {
+  position: relative;
+  content: "zł";
+  margin-left: 5px;
+  font-size: 30px;
+}
+.prices_column_decription {
+  margin: 20px 0;
+}
+.prices_column_list {
+  margin-bottom: 20px;
+}
+.prices_column_list_item {
+  padding: 10px 0;
+  font-weight: 500;
+  line-height: 20px;
+}
+.prices_column_list_item:before {
+  content: "+";
+  position: relative;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.column_side {
+  background-color: rgb(229, 229, 229);
+}
+.column_side .prices_column_slogan {
+  background-color: rgb(20, 33, 61);
+  border-radius: 0.25rem;
+  color: rgb(255, 255, 255);
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  display: inline-block;
+}
+.column_center {
+  background-color: rgb(20, 33, 61);
+  color: rgb(255, 255, 255);
+}
+.column_center .prices_column_slogan {
+  background-color: rgb(252, 163, 17);
+  border-radius: 0.25rem;
+  color: rgb(0, 0, 0);
+  padding: 8px 16px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  display: inline-block;
+}
+.column_center .prices_column_subtitle {
+  border-color: rgb(255, 255, 255);
+}
+
 .about_text {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -550,9 +723,9 @@ body {
   font-weight: 500;
   padding: 20px;
   text-transform: uppercase;
+  text-align: center;
   background-color: rgb(20, 33, 61);
   color: rgb(255, 255, 255);
-  text-align: center;
   border-radius: 0.25rem;
 }
 .about_text_description {
@@ -609,5 +782,81 @@ body {
 .about_boxes_worker_img {
   height: 200px;
   border-radius: 50%;
+}
+
+.benefits_title {
+  font-family: "Rubik", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgb(252, 163, 17);
+  border-radius: 0.25rem;
+  margin-bottom: 30px;
+}
+
+.benefits_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.benefits_box_item {
+  height: 200px;
+  width: 200px;
+  background-color: rgb(229, 229, 229);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  margin: 10px;
+}
+.benefits_box_item img {
+  height: 50%;
+  width: 50%;
+}
+.benefits_box_item p {
+  font-family: "Rubik", sans-serif;
+  color: rgb(0, 0, 0);
+  margin: 10px;
+  text-align: center;
+}
+
+.benefits_opinions {
+  background-color: rgb(252, 163, 17);
+  height: 380px;
+  border-radius: 0.25rem;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.benefits_opinions_box {
+  width: 50%;
+  margin: 50px;
+}
+.benefits_opinions img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.benefits_blockquote img {
+  width: 100px;
+}
+.benefits_blockquote h4 {
+  font-family: "Rubik", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 20px;
+  text-transform: uppercase;
+}
+.benefits_blockquote p {
+  font-family: "Rubik", sans-serif;
+  color: rgb(0, 0, 0);
+  line-height: 20px;
 }
 /*# sourceMappingURL=main.css.map */

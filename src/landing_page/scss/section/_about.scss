@@ -6,7 +6,6 @@
     @include section-title;
     background-color: $navy;
     color: $white;
-    text-align: center;
     border-radius: $radius;
   }
 
@@ -48,11 +47,6 @@
 
 
     &_text {
-      //padding: 20px 0 40px 0;
-      @include desktop {
-        //padding: 0 0 30px 0;
-      }
-
       > h4 {
         @include text-title {
           text-align: center;
@@ -63,9 +57,6 @@
         @include standard-text {
           text-align: justify;
           line-height: 20px;
-        }
-        @include desktop {
-          //padding: 0 15px;
         }
       }
     }

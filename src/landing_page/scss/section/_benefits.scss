@@ -1,0 +1,73 @@
+.benefits_title {
+    @include section-title {
+      background-color: $orange;
+      border-radius: $radius;
+    }
+  margin-bottom: 30px;
+  }
+.benefits_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  &_item {
+    height: 200px;
+    width: 200px;
+    background-color: $grey;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+    & img {
+      height: 50%;
+      width: 50%;
+    }
+    & p {
+      @include standard-text;
+      margin: 10px;
+      text-align: center;
+    }
+  }
+}
+
+.benefits_opinions {
+  background-color: $orange;
+  height: 380px;
+  border-radius: $radius;
+  margin: 30px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_box {
+    width: 50%;
+    margin: 50px;
+  }
+  & img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+}
+
+.benefits_blockquote {
+  & img {
+    width: 100px;
+  }
+  & h4 {
+    @include text-title {
+    }
+  }
+    & p {
+      @include standard-text {
+        line-height: 20px;
+
+      }
+    }
+
+}

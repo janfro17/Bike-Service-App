@@ -32,14 +32,20 @@
 
 
     h2 {
-      font-size: 40px;
+      font-size: 24px;
       font-weight: $font-bold;
       text-transform: uppercase;
+      @include desktop {
+        font-size: 32px;
+      }
     }
 
     p {
-      font-size: 20px;
+      font-size: 16px;
       margin: 30px 0 50px 0;
+      @include desktop {
+        font-size: 20px;
+      }
     }
   }
 }

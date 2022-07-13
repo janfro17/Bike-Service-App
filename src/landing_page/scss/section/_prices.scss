@@ -1,0 +1,117 @@
+.prices_text {
+  & h3 {
+    @include section-title {
+      background-color: $navy;
+      color: $white;
+      border-radius: $radius;
+    }
+  }
+
+  & p {
+    @include standard-text {
+      text-align: center;
+      font-size: 20px;
+    }
+    padding: 30px;
+  }
+}
+
+.prices_box_items {
+  @include desktop {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+  }
+}
+
+.prices_seasons_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include menu-element;
+  background-color: $orange;
+  line-height: 32px;
+  border-radius: $radius;
+}
+
+.prices_column {
+  padding: 30px;
+  border-radius: $radius;
+  margin: 32px 0;
+  @include standard-text;
+  @include desktop {
+    margin: 32px;
+    width: 400px;
+  }
+
+  &_title {
+    @include text-title;
+    padding: 0 0 10px 0;
+  }
+
+  &_subtitle {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $black;
+  }
+
+  &_price {
+    font-size: 48px;
+    font-weight: $font-bold;
+    padding: 10px 0;
+
+    &:after {
+      position: relative;
+      content: "zł";
+      margin-left: 5px;
+      font-size: 30px;
+    }
+  }
+
+  &_decription {
+    margin: 20px 0;
+  }
+
+  &_list {
+    margin-bottom: 20px;
+
+    &_item {
+      padding: 10px 0;
+      font-weight: $font-bold;
+      line-height: 20px;
+
+      &:before {
+        content: '+';
+        position: relative;
+        margin-right: 10px;
+        font-size: 20px;
+      }
+    }
+
+  }
+}
+
+.column {
+  &_side {
+    background-color: $grey;
+
+    .prices_column_slogan {
+      @include slogan($navy, $white);
+    }
+  }
+
+  &_center {
+    background-color: $navy;
+    color: $white;
+
+    .prices_column {
+      &_slogan {
+        @include slogan($orange, $black);
+      }
+
+      &_subtitle {
+        border-color: $white;
+      }
+    }
+  }
+}
