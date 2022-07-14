@@ -29,14 +29,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  @include menu-element;
   background-color: $orange;
-  line-height: 32px;
   border-radius: $radius;
 }
 
+
 .prices_seasons_list_item {
+  @include menu-element;
+  line-height: 32px;
   cursor: pointer;
+  margin: 0 5px;
+  @include tablet {
+    margin: 0 20px;
+  }
+
   .season_active {
     color: $white;
     &:before {

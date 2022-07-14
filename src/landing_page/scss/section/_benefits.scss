@@ -36,18 +36,23 @@
 
 .benefits_opinions {
   background-color: $orange;
-  height: 280px;
+  height: 100%;
   border-radius: $radius;
   margin-top: 20px;
   margin-bottom: 50px;
-
+  padding: 5px 0;
+@include tablet {
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
   &_box {
-    width: 50%;
-    margin: 50px;
+    padding: 20px;
+    @include tablet {
+      width: 50%;
+      margin: 50px;
+    }
   }
   & img {
     height: 50px;

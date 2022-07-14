@@ -388,6 +388,7 @@ a {
   border-radius: 0.25rem;
   font-size: 20px;
   position: absolute;
+  z-index: 1;
   left: 0;
   top: 180px;
   flex-direction: column;
@@ -529,12 +530,24 @@ body {
   border-radius: 0.25rem;
   padding: 5px;
   display: inline-block;
-  margin-left: 20px;
+  margin: 0 10px;
+}
+@media (min-width: 768px) {
+  .social_box {
+    margin-left: 20px;
+  }
 }
 .social_box img {
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+@media (min-width: 768px) {
+  .social_box img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
 }
 
 .copyrights_box {
@@ -544,16 +557,33 @@ body {
   background-color: rgb(252, 163, 17);
   border-radius: 0.25rem;
   padding: 10px;
-  margin-right: 20px;
+  margin-right: 10px;
+}
+@media (min-width: 1024px) {
+  .copyrights_box {
+    margin-right: 20px;
+  }
 }
 .copyrights_box img {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   margin-right: 10px;
+}
+@media (min-width: 768px) {
+  .copyrights_box img {
+    height: 30px;
+    width: 30px;
+  }
 }
 .copyrights_box p {
   font-family: "Rubik", sans-serif;
   color: rgb(0, 0, 0);
+  font-size: 12px;
+}
+@media (min-width: 768px) {
+  .copyrights_box p {
+    font-size: 16px;
+  }
 }
 
 .cta_box {
@@ -759,6 +789,7 @@ body {
   border: none;
   border-radius: 0.25rem;
   font-size: 20px;
+  width: 100%;
 }
 .form_wrapper button {
   align-items: center;
@@ -866,30 +897,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(252, 163, 17);
+  border-radius: 0.25rem;
+}
+
+.prices_seasons_list_item {
   font-family: "Rubik", sans-serif;
   text-align: center;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
-  background-color: rgb(252, 163, 17);
   line-height: 32px;
-  border-radius: 0.25rem;
+  cursor: pointer;
+  margin: 0 5px;
 }
-.prices_seasons_list * {
+.prices_seasons_list_item * {
   box-sizing: border-box;
   transition: all 0.35s ease;
 }
-.prices_seasons_list li {
+.prices_seasons_list_item li {
   display: inline-block;
   list-style: outside none none;
   margin: 0 1.5em;
 }
-.prices_seasons_list a, .prices_seasons_list span {
+.prices_seasons_list_item a, .prices_seasons_list_item span {
   color: rgb(0, 0, 0);
   position: relative;
   display: inline-block;
 }
-.prices_seasons_list a:before, .prices_seasons_list span:before {
+.prices_seasons_list_item a:before, .prices_seasons_list_item span:before {
   position: absolute;
   content: "";
   transition: all 0.35s ease;
@@ -901,17 +937,18 @@ body {
   border-top: 3px solid rgb(20, 33, 61);
   border-bottom: 3px solid rgb(20, 33, 61);
 }
-.prices_seasons_list a:hover, .prices_seasons_list span:hover {
+.prices_seasons_list_item a:hover, .prices_seasons_list_item span:hover {
   color: rgb(255, 255, 255);
 }
-.prices_seasons_list a:hover:before, .prices_seasons_list span:hover:before {
+.prices_seasons_list_item a:hover:before, .prices_seasons_list_item span:hover:before {
   opacity: 1;
   top: 0;
   bottom: 0;
 }
-
-.prices_seasons_list_item {
-  cursor: pointer;
+@media (min-width: 768px) {
+  .prices_seasons_list_item {
+    margin: 0 20px;
+  }
 }
 .prices_seasons_list_item .season_active {
   color: rgb(255, 255, 255);
@@ -1127,17 +1164,27 @@ body {
 
 .benefits_opinions {
   background-color: rgb(252, 163, 17);
-  height: 280px;
+  height: 100%;
   border-radius: 0.25rem;
   margin-top: 20px;
   margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 5px 0;
+}
+@media (min-width: 768px) {
+  .benefits_opinions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .benefits_opinions_box {
-  width: 50%;
-  margin: 50px;
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .benefits_opinions_box {
+    width: 50%;
+    margin: 50px;
+  }
 }
 .benefits_opinions img {
   height: 50px;
