@@ -28,18 +28,24 @@
             <h1>Bike Service</h1>
         </div>
         <nav class="header_box_menu">
+            <input type="checkbox" class="menu_btn" id="menu_btn">
+            <label for="menu_btn" class="menu_toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
             <ul class="header_box_menu_list">
                 <li class="header_box_menu_list_element">
-                    <a href="#">Zarezerwuj serwis</a>
+                    <a class="header_box_menu_list_element_link" href="#">Zarezerwuj serwis</a>
                 </li>
                 <li class="header_box_menu_list_element">
-                    <a href="#about">O nas</a></li>
+                    <a class="header_box_menu_list_element_link" href="#about">O nas</a></li>
                 <li class="header_box_menu_list_element">
-                    <a href="#benefits">Dlaczego my?</a></li>
+                    <a class="header_box_menu_list_element_link" href="#benefits">Dlaczego my?</a></li>
                 <li class="header_box_menu_list_element">
-                    <a href="#prices">Cennik</a></li>
+                    <a class="header_box_menu_list_element_link" href="#prices">Cennik</a></li>
                 <li class="header_box_menu_list_element">
-                    <a href="#contact">Kontakt</a></li>
+                    <a class="header_box_menu_list_element_link" href="#contact">Kontakt</a></li>
             </ul>
         </nav>
     </div>
@@ -146,16 +152,16 @@
         <div class="prices_box">
             <div class="prices_box_titles">
                 <ul class="prices_seasons_list">
-                    <li class="prices_seasons_list_item"><span>Marzec-Lipiec</span></li>
-                    <li class="prices_seasons_list_item"><span>Sierpień-Październik</span></li>
-                    <li class="prices_seasons_list_item"><span>Listopad-Luty</span></li>
+                    <li class="prices_seasons_list_item"><span id="high_season" class="season_active">Marzec-Lipiec</span></li>
+                    <li class="prices_seasons_list_item"><span id="middle_season">Sierpień-Październik</span></li>
+                    <li class="prices_seasons_list_item"><span id="low_season">Listopad-Luty</span></li>
                 </ul>
             </div>
             <div class="prices_box_items">
                 <div class="prices_column column_side column_left">
                     <h4 class="prices_column_title">Podstawowy</h4>
                     <p class="prices_column_subtitle">Dla dbających o bezpieczeństwo</p>
-                    <div class="prices_column_price">129</div>
+                    <div id="left_price" class="prices_column_price">129</div>
                     <div class="prices_column_slogan">Dla bezpieczeństwa</div>
                     <p class="prices_column_decription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut,
                         consequatur cupiditate dolorem est ex exercitationem fuga incidunt libero molestiae non placeat
@@ -176,7 +182,7 @@
                 <div class="prices_column column_center">
                     <h4 class="prices_column_title">Kompleksowy</h4>
                     <p class="prices_column_subtitle">Dla zapalonych rowerzystów</p>
-                    <div class="prices_column_price">209</div>
+                    <div id="center_price" class="prices_column_price">209</div>
                     <div class="prices_column_slogan">Najczęściej wybierany</div>
                     <p class="prices_column_decription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
                         delectus deserunt ducimus exercitationem nobis? Asperiores doloribus eos fugit iure labore!</p>
@@ -206,7 +212,7 @@
                 <div class="prices_column column_side column_right">
                     <h4 class="prices_column_title">Premium</h4>
                     <p class="prices_column_subtitle">Dopasowany dla miłośników swojego roweru</p>
-                    <div class="prices_column_price">309</div>
+                    <div id="right_price" class="prices_column_price">309</div>
                     <div class="prices_column_slogan">Dla miłośników</div>
                     <p class="prices_column_decription">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Asperiores at praesentium quaerat quis quisquam temporibus?</p>
@@ -292,5 +298,6 @@
         <p>2022 BIKE SERVICE</p>
     </div>
 </footer>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -116,11 +116,11 @@
     bottom: 25%;
     left: 0;
     right: 0;
-    border-top: 3px solid #34495e;
-    border-bottom: 3px solid #34495e;
+    border-top: 3px solid $navy;
+    border-bottom: 3px solid $navy;
   }
   & a:hover, span:hover {
-    color: #ffffff;
+    color: $white;
   }
   & a:hover:before, span:hover:before {
     opacity: 1;

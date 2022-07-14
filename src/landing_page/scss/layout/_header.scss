@@ -50,19 +50,6 @@
       text-transform: uppercase;
     }
   }
-  &_menu_list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $orange;
-    border-radius: $radius;
-
-    font-size: 20px;
-    @include menu-element;
-    &_element {
-      margin-left: 20px;
-    }
-  }
 }
 
 
