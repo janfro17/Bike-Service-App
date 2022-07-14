@@ -1,5 +1,5 @@
 // Ścieżka do aktualnie wykonywanego zadania
-const entryPath = "src/landing_page";
+const entryPath = "src/app";
 
 const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
@@ -9,7 +9,7 @@ const browserSync = require("browser-sync").create();
 
 function compileSass(done) {
     gulp
-        .src(entryPath + "/scss/main.scss")
+        .src(entryPath + "/scss/app.scss")
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
         .pipe(autoprefixer())
