@@ -1,0 +1,39 @@
+.footer {
+  background-color: $navy;
+  height: 64px;
+  border-radius: $radius;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social_box {
+  background-color: $orange;
+  border-radius: $radius;
+  padding: 5px;
+  display: inline-block;
+  margin-left: 20px;
+  & img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+}
+
+.copyrights_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $orange;
+  border-radius: $radius;
+  padding: 10px;
+  margin-right: 20px;
+  & img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+  & p {
+    @include standard-text;
+  }
+}

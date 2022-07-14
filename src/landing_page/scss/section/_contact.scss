@@ -1,0 +1,123 @@
+.contact {
+  margin-bottom: 50px;
+}
+
+.contact_title {
+  @include section-title;
+  background-color: $orange;
+  border-radius: $radius;
+  margin-bottom: 30px;
+}
+
+.contact_wrapper {
+  @include desktop {
+    display: flex;
+  }
+}
+
+.contact_box {
+  background-color: $grey;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: $radius;
+  @include desktop {
+    width: 50%;
+  }
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @include tablet {
+      width: 40%;
+    }
+
+    & img {
+      height: 30px;
+      width: 30px;
+      margin: 10px 0;
+    }
+
+    & p {
+      @include standard-text;
+      margin: 0 0 20px 0;
+      line-height: 24px;
+      text-align: center;
+
+      & a:hover {
+        border-bottom: 2px solid $black;
+      }
+    }
+  }
+}
+
+.contact_box_form {
+  background-color: $navy;
+  color: $white;
+  @include tablet {
+    width: 60%;
+  }
+  border-radius: $radius;
+  padding: 20px 0;
+
+  .form_title {
+    @include text-title;
+    text-align: center;
+  }
+}
+
+.form_wrapper {
+  padding: 0 30px;
+
+  & label {
+    @include standard-text;
+    color: white;
+  }
+
+  & input, textarea {
+    margin: 5px 0 20px 0;
+    border: none;
+    border-radius: $radius;
+    font-size: 20px;
+  }
+
+  & button {
+    @include cta-button;
+  }
+}
+
+.contact_map {
+  margin: 30px 0 30px 20px;
+  padding: 20px;
+  @include desktop {
+    width: 50%;
+    align-self: center;
+  }
+}
+
+.mapouter {
+  text-align: right;
+
+}
+
+.gmap_canvas {
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+  border-radius: $radius;
+
+  & iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+  }
+}
