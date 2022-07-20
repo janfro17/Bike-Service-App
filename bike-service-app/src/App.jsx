@@ -1,13 +1,22 @@
-import './App.css'
-import { Calendar } from 'antd';
+import './scss/App.scss'
+import Cal from "./components/Calendar.jsx";
 import 'antd/dist/antd.css';
+import Header from "./components/Header.jsx";
+import FormDisabledDemo from "./components/Form.jsx";
+import Footer from "./components/Footer.jsx";
+
 
 const App = () => {
-    const onPanelChange = (value, mode) => {
-        console.log(value.format('YYYY-MM-DD'), mode);
-    };
 
-    return <Calendar onPanelChange={onPanelChange} />;
+    return (
+        <>
+            <Header/>
+            <Cal/>;
+            <FormDisabledDemo />
+            <Footer />
+        </>
+    )
+
 };
 
 export default App

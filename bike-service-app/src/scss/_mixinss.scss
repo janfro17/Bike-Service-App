@@ -1,0 +1,87 @@
+//Media query
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin cta-button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: $orange;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: $white;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: $rubik;
+  font-size: 16px;
+  font-weight: $font-bold;
+  letter-spacing: 0.5px;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+
+  &:hover, :focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: $black;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+}
+
+@mixin section-title {
+  font-family: $rubik;
+  font-size: 30px;
+  font-weight: $font-bold;
+  padding: 20px;
+  text-transform: uppercase;
+  text-align: center;
+  @content
+}
+
+@mixin text-title {
+  font-family: $rubik;
+  font-size: 20px;
+  font-weight: $font-bold;
+  padding: 20px;
+  text-transform: uppercase;
+  @content
+}
+
+@mixin standard-text {
+  font-family: $rubik;
+  color: $black;
+  @content
+}
+
+
+

@@ -1,0 +1,30 @@
+@import "variables";
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.logo_title {
+  font-family: $rubik;
+  line-height: 100px;
+  font-size: 62px;
+  font-weight: $font-extrabold;
+  text-transform: uppercase;
+  margin: 0;
+
+
+
+}
+
+.login_box {
+  background-color: $grey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
