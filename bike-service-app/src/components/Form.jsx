@@ -17,10 +17,25 @@ const FormData = () => {
         surname: "",
         email: "",
         phone: "",
-        service: "full",
+        service: "SERWIS KOMPLEKSOWY",
         additional: "",
-        statement: false,
     });
+
+    const [checked, setChecked] = useState(false);
+    const handleChecked = (e) => {
+        setChecked(e.target.checked);
+    };
+
+    const form = {
+        name: data.name,
+        surname: data.surname,
+        email: data.email,
+        phone: data.phone,
+        service: data.service,
+        additional: data.additional,
+        statement: checked,
+    };
+
     const handleChange = (e) => {
         const {name, value} = e.target;
         setData(prevState => {
@@ -28,47 +43,24 @@ const FormData = () => {
                 ...prevState,
                 [name]: value
             }
-        })
-    }
+        });
+    };
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(data);
 
-        const API = "http://localhost:8090";
+        const client = new PocketBase('http://localhost:8090');
 
 
-        fetch(`${API}/api/collections/bike_service_app/records`, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(response => response.json())
+        client.Records.create("bike_service_app", form)
             .then(data => {
                 console.log(data);
             })
             .catch(error => {
                 console.log(error);
             });
-
-
-        // const client = new PocketBase("/");
-        //
-        // const data = {
-        //     name: this.name,
-        //     surname: this.surname,
-        //
-        //
-        // };
-        //
-        // client.Records.create("bike_service_app", data)
-        //     .then(function (record) {
-        //         // success...
-        //     }).catch(function (error) {
-        //     // error...
-        // });
     }
 
     return (
@@ -83,9 +75,7 @@ const FormData = () => {
         >
             <h2>Data serwisu: {serviceDate}</h2>
             <Form.Item
-                name="name"
-                value={data.name}
-                onChange={handleChange}
+
                 label="Imię"
                 tooltip="Podaj swoje imię"
                 rules={[
@@ -96,12 +86,13 @@ const FormData = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input name="name"
+                    value={data.name}
+                       onChange={handleChange}
+                />
             </Form.Item>
             <Form.Item
-                name="surname"
-                value={data.surname}
-                onChange={handleChange}
+
                 label="Nazwisko"
                 tooltip="Podaj swoje nazwisko"
                 rules={[
@@ -112,12 +103,13 @@ const FormData = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input value={data.surname}
+                       onChange={handleChange}
+                       name="surname"
+                />
             </Form.Item>
             <Form.Item
-                name="email"
-                value={data.email}
-                onChange={handleChange}
+
                 label="E-mail"
                 rules={[
                     {
@@ -130,12 +122,13 @@ const FormData = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input
+                    value={data.email}
+                    onChange={handleChange}
+                    name="email"
+                />
             </Form.Item>
             <Form.Item
-                name="phone"
-                value={data.phone}
-                onChange={handleChange}
                 label="Nr kontaktowy"
                 rules={[
                     {
@@ -145,6 +138,9 @@ const FormData = () => {
                 ]}
             >
                 <Input
+                    name="phone"
+                    value={data.phone}
+                    onChange={handleChange}
                     addonBefore='+48'
                     style={{
                         width: '100%',
@@ -152,10 +148,9 @@ const FormData = () => {
                 />
             </Form.Item>
             <Form.Item label="Wybierz rodzaj serwisu"
-                       name='service'
-                       value={data.service}
-                       onChange={handleChange}
-                       tooltip='Cena serwisu zależy od aktualnego sezonu. Marzec lipiec - '
+
+                       initialValue='SERWIS KOMPLEKSOWY'
+                       tooltip='Cena serwisu zależy od aktualnego sezonu. Pełny cennik na stronie # '
                        rules={[
                            {
                                required: true,
@@ -163,21 +158,22 @@ const FormData = () => {
                            },
                        ]}
             >
-                <Select>
+                <Select name='service' value={data.service} onChange={handleChange}
+                >
                     <Select.Option name='basic' value="SERWIS PODSTAWOWY">SERWIS PODSTAWOWY</Select.Option>
                     <Select.Option name='full' value="SERWIS KOMPLEKSOWY">SERWIS KOMPLEKSOWY</Select.Option>
-                    <Select.Option name='premium' value="SERWIS PREMIUM">SERWIS PREMIUM CENA</Select.Option>
+                    <Select.Option name='premium' value="SERWIS PREMIUM">SERWIS PREMIUM</Select.Option>
                 </Select>
             </Form.Item>
-            <Form.Item name='additional'
-                       value={data.additional}
-                       onChange={handleChange}
+            <Form.Item
                        label="Dodatkowe informacje">
-                <TextArea rows={4} />
+                <TextArea
+                    name='additional'
+                    value={data.additional}
+                    onChange={handleChange}
+                    rows={4} />
             </Form.Item>
-            <Form.Item name="statement"
-                       value={data.statement}
-                       onChange={handleChange}
+            <Form.Item
                        label="Oświadczenie"
                        valuePropName="checked"
                        rules={[
@@ -186,7 +182,11 @@ const FormData = () => {
                            },
                            ]}
                 >
-                <Checkbox>Akceptuję regulamin i cennik serwisu</Checkbox>
+                <Checkbox
+                    name="statement"
+                   checked={checked}
+                    onChange={handleChecked}
+                >Akceptuję regulamin i cennik serwisu</Checkbox>
             </Form.Item>
             <Form.Item>
                 <Button type='submit'
