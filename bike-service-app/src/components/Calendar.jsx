@@ -95,7 +95,7 @@ const Cal = () => {
     };
     const [value, setValue] = useState(moment());
     const [selectedValue, setSelectedValue] = useState(moment());
-
+    // export let selectedDate = selectedValue;
     const onSelect = (newValue) => {
         setValue(newValue);
         setSelectedValue(newValue);
@@ -104,6 +104,7 @@ const Cal = () => {
     const onPanelChange = (newValue) => {
         setValue(newValue);
     };
+
     return (
         <>
             <Alert message={`Wybrana data: ${selectedValue?.format('YYYY-MM-DD')}`} />
