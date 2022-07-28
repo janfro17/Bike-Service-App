@@ -1,4 +1,6 @@
 @import "variables";
+@import "mixinss";
+
 .logo {
   display: flex;
   justify-content: center;
@@ -27,4 +29,23 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.case_data {
+  @include standard-text;
+  padding: 20px;
+  background-color: $orange;
+  h2 {
+    @include text-title;
+  }
+  p {
+    strong {
+      font-weight: $font-bold;
+    }
+    span {
+      color: $white;
+      font-weight: $font-bold;
+      font-size: 20px;
+    }
+  }
 }

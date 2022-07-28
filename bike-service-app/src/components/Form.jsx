@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import PocketBase from 'pocketbase';
 import {
     Form,
@@ -6,12 +6,16 @@ import {
     Select,
     Checkbox, Button,
 } from 'antd';
+import DateContext from "./DateContext.jsx";
+
 
 const { TextArea } = Input;
-const serviceDate = '2022-07-22';
+
 
 
 const FormData = () => {
+    const { date } = useContext(DateContext);
+    const serviceDate = date;
     const [data, setData] = useState({
         name: "",
         surname: "",
@@ -27,6 +31,7 @@ const FormData = () => {
     };
 
     const form = {
+        date: serviceDate,
         name: data.name,
         surname: data.surname,
         email: data.email,
@@ -73,7 +78,21 @@ const FormData = () => {
             }}
             layout="horizontal"
         >
-            <h2>Data serwisu: {serviceDate}</h2>
+            <Form.Item
+
+                label="Wybrana data serwisu"
+                tooltip="Wybierz datę na kalendarzu"
+                rules={[
+                    {
+                        required: true,
+                        message: 'Wybierz datę na kalendarzu!',
+                    },
+                ]}
+            >
+                <Input name="date"
+                       value={serviceDate}
+                />
+            </Form.Item>
             <Form.Item
 
                 label="Imię"

@@ -1,7 +1,10 @@
 import { Alert, Badge, Calendar } from 'antd';
 import moment from 'moment';
 import React from 'react';
-import {useState} from "react";
+import {useState, useContext} from "react";
+import DateContext from "./DateContext.jsx";
+
+
 
 const getListData = (value) => {
     let listData;
@@ -95,7 +98,7 @@ const Cal = () => {
     };
     const [value, setValue] = useState(moment());
     const [selectedValue, setSelectedValue] = useState(moment());
-    // export let selectedDate = selectedValue;
+
     const onSelect = (newValue) => {
         setValue(newValue);
         setSelectedValue(newValue);
@@ -103,12 +106,17 @@ const Cal = () => {
 
     const onPanelChange = (newValue) => {
         setValue(newValue);
+
     };
+    const selectedDate = selectedValue?.format('YYYY-MM-DD');
+    const { changeDate } = useContext(DateContext);
+    changeDate(selectedDate);
+
 
     return (
         <>
             <Alert message={`Wybrana data: ${selectedValue?.format('YYYY-MM-DD')}`} />
-        <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange} />;
+            <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange} />;
         </>
     )
 };
