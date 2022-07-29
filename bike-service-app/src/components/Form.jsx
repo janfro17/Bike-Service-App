@@ -14,7 +14,8 @@ const { TextArea } = Input;
 
 
 const FormData = () => {
-    const { date } = useContext(DateContext);
+    const [isClicked, setIsClicked] = useState(false);
+    const { date, changeIsSubmit } = useContext(DateContext);
     const serviceDate = date;
     const [data, setData] = useState({
         name: "",
@@ -66,7 +67,9 @@ const FormData = () => {
             .catch(error => {
                 console.log(error);
             });
+        setIsClicked(true);
     }
+    changeIsSubmit(isClicked);
 
     return (
         <Form

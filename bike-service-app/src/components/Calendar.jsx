@@ -1,4 +1,4 @@
-import { Alert, Badge, Calendar } from 'antd';
+import { Alert, Calendar } from 'antd';
 import moment from 'moment';
 import React from 'react';
 import {useState, useContext} from "react";
@@ -8,94 +8,40 @@ import DateContext from "./DateContext.jsx";
 
 const getListData = (value) => {
     let listData;
+if (value.month()) {
+    listData = 4;
 
-    switch (value.date()) {
-        case 8:
-            listData = [
-                {
-                    type: 'warning',
-                    content: 'This is warning event.',
-                },
-                {
-                    type: 'success',
-                    content: 'This is usual event.',
-                },
-            ];
-            break;
+    const {isSubmit, date} = useContext(DateContext);
+    const selectedDay = date.slice(8, 10);
+    const selectedMonth = date.slice(-4, -3);
 
-        case 10:
-            listData = [
-                {
-                    type: 'warning',
-                    content: 'Zajęte',
-                },
-            ];
-            break;
+    if (isSubmit === true) {
 
-        case 15:
-            listData = [
-                {
-                    type: 'warning',
-                    content: 'Zajęte',
-                },
-                {
-                    type: 'success',
-                    content: 'Wolne',
-                },
-                {
-                    type: 'error',
-                    content: 'This is error event 1.',
-                },
-                {
-                    type: 'error',
-                    content: 'This is error event 2.',
-                },
-                {
-                    type: 'error',
-                    content: 'This is error event 3.',
-                },
-                {
-                    type: 'error',
-                    content: 'This is error event 4.',
-                },
-            ];
-            break;
-
-        default:
+        if (value.date() === selectedDay && value.month() === selectedMonth) {
+            console.log(listData);
+            // if (listData > 0) {
+            //     listData--
+            } else
+                console.log(value.day())
+        }
     }
+    return listData;
+}
 
-    return listData || [];
-};
 
-const getMonthData = (value) => {
-    if (value.month() === 8) {
-        return 1394;
-    }
-};
+
 
 const Cal = () => {
-    const monthCellRender = (value) => {
-        const num = getMonthData(value);
-        return num ? (
-            <div className="notes-month">
-                <section>{num}</section>
-                <span>Backlog number</span>
-            </div>
-        ) : null;
-    };
 
-    const dateCellRender = (value) => {
-        const listData = getListData(value);
+    const dateCellRender = (item) => {
+        const listData = getListData(item);
         return (
-            <ul className="events">
-                {listData.map((item) => (
-                    <li key={item.content}>
-                        <Badge status={item.type} text={item.content} />
-                    </li>
-                ))}
-            </ul>
+            listData
         );
     };
+    const disabledDate = (value) => {
+        return !(value.day() === 5 || 6) ? true : false;
+    }
     const [value, setValue] = useState(moment());
     const [selectedValue, setSelectedValue] = useState(moment());
 
@@ -113,10 +59,12 @@ const Cal = () => {
     changeDate(selectedDate);
 
 
+
+
     return (
         <>
             <Alert message={`Wybrana data: ${selectedValue?.format('YYYY-MM-DD')}`} />
-            <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange} />;
+            <Calendar disabledDate={disabledDate} dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange} />;
         </>
     )
 };

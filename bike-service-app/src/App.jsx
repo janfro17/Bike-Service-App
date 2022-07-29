@@ -13,10 +13,10 @@ const App = () => {
     return (
         <>
             <DateProvider>
-            <Header />
-            <Cal/>;
-            <FormData />
-            <Footer />
+                <Header/>
+                <Cal/>;
+                <FormData/>
+                <Footer/>
             </DateProvider>
         </>
     )
