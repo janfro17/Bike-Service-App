@@ -5,6 +5,7 @@ const DateContext = createContext();
 export const DateProvider = ({ children }) => {
     const [date, setDate] = useState('');
     const [isSubmit, setIsSubmit] = useState();
+    const [dataFiltered, setDataFiltered] = useState([]);
 
     const changeDate = (date) => {
         setDate(date);
@@ -14,8 +15,12 @@ export const DateProvider = ({ children }) => {
         setIsSubmit(value)
     }
 
+    const changeDataFiltered = (value) => {
+        setDataFiltered([...value])
+    }
+
     return (
-        <DateContext.Provider value={{date, changeDate, isSubmit, changeIsSubmit}}>
+        <DateContext.Provider value={{date, changeDate, isSubmit, changeIsSubmit, dataFiltered, changeDataFiltered}}>
             {children}
         </DateContext.Provider>
     );

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import imgURL from '../assets/logo-bike.svg';
 import {useState} from "react";
 import PocketBase from 'pocketbase';

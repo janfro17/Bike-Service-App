@@ -11,12 +11,11 @@ import DateContext from "./DateContext.jsx";
 
 const { TextArea } = Input;
 
-
-
 const FormData = () => {
     const [isClicked, setIsClicked] = useState(false);
     const { date, changeIsSubmit } = useContext(DateContext);
-    const serviceDate = date;
+  const serviceDate = date;
+
     const [data, setData] = useState({
         name: "",
         surname: "",
@@ -52,24 +51,54 @@ const FormData = () => {
         });
     };
 
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(data);
-
+    const dates = {
+        date: serviceDate,
+    }
+    const addService = () => {
         const client = new PocketBase('http://localhost:8090');
 
-
-        client.Records.create("bike_service_app", form)
+        client.Records.create("service_days", dates)
             .then(data => {
                 console.log(data);
             })
             .catch(error => {
                 console.log(error);
             });
+    }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
         setIsClicked(true);
+
+        const client = new PocketBase('http://localhost:8090');
+
+        client.Records.create("bike_service_app", form)
+            .then(data => {
+                console.log(data);
+                setIsClicked(false);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        addService();
+
+
+
+        // setData({
+        //     name: "",
+        //     surname: "",
+        //     email: "",
+        //     phone: "",
+        //     service: "SERWIS KOMPLEKSOWY",
+        //     additional: "",
+        // });
+        // setChecked(false);
     }
     changeIsSubmit(isClicked);
+
+
+
 
     return (
         <Form

@@ -1,47 +1,54 @@
-import { Alert, Calendar } from 'antd';
+import {Alert, Calendar, Badge} from 'antd';
 import moment from 'moment';
 import React from 'react';
 import {useState, useContext} from "react";
 import DateContext from "./DateContext.jsx";
-
-
-
-const getListData = (value) => {
-    let listData;
-if (value.month()) {
-    listData = 4;
-
-    const {isSubmit, date} = useContext(DateContext);
-    const selectedDay = date.slice(8, 10);
-    const selectedMonth = date.slice(-4, -3);
-
-    if (isSubmit === true) {
-
-        if (value.date() === selectedDay && value.month() === selectedMonth) {
-            console.log(listData);
-            // if (listData > 0) {
-            //     listData--
-            } else
-                console.log(value.day())
-        }
-    }
-    return listData;
-}
-
-
+import PocketBase from "pocketbase";
 
 
 const Cal = () => {
+    const {dataFiltered, changeDataFiltered} = useContext(DateContext);
 
-    const dateCellRender = (item) => {
-        const listData = getListData(item);
+    const dateGetList = () => {
+        const client = new PocketBase("http://localhost:8090");
+
+        client.Records.getList("service_days",)
+            .then(function (list) {
+                const filtered = list.items.map(item => {
+                    return item.date;
+                })
+                changeDataFiltered(filtered);
+            }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
+    const addToData = (arr) => {
+        return arr.map(item => {
+            return {
+                date: item
+            }
+        })
+    };
+
+    const data = addToData(dataFiltered);
+
+    const dateCellRender = (value) => {
+        const stringValue = value.format("DD/MM/yyyy");
+        const listData = data.filter(({date}) => date === stringValue)
         return (
-            listData
+            <ul className="events">
+                {listData.map((item, index) => (
+                    <li key={index}>
+                        <Badge status={"error"} text={"Zajęte"}/>
+                    </li>
+                ))}
+            </ul>
         );
     };
-    const disabledDate = (value) => {
-        return !(value.day() === 5 || 6) ? true : false;
-    }
+    // const disabledDate = (value) => {
+    //     return !(value.day() === 5 || 6) ? true : false;
+    // }
     const [value, setValue] = useState(moment());
     const [selectedValue, setSelectedValue] = useState(moment());
 
@@ -54,17 +61,20 @@ const Cal = () => {
         setValue(newValue);
 
     };
-    const selectedDate = selectedValue?.format('YYYY-MM-DD');
-    const { changeDate } = useContext(DateContext);
+
+
+    const selectedDate = selectedValue?.format('DD/MM/yyyy');
+    const {changeDate, isSubmit} = useContext(DateContext);
     changeDate(selectedDate);
+    dateGetList();
 
 
 
 
     return (
         <>
-            <Alert message={`Wybrana data: ${selectedValue?.format('YYYY-MM-DD')}`} />
-            <Calendar disabledDate={disabledDate} dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange} />;
+            <Alert message={`Wybrana data: ${selectedValue?.format('DD/MM/yyyy')}`}/>
+            <Calendar dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange}/>;
         </>
     )
 };
