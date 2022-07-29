@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import imgURL from '../assets/logo-bike.svg';
 import {useState} from "react";
 import PocketBase from 'pocketbase';
+import DateContext from "./DateContext.jsx";
 
 
 function Header() {
@@ -9,10 +10,12 @@ function Header() {
     const [caseData, setCaseData] = useState({});
     const [isShownCase, setIsShownCase] = useState(false);
     const [isShownError, setIsShownError] = useState(false);
-
+    const {changeVisibility} = useContext(DateContext);
 
     const checkNumber = (e) => {
         e.preventDefault();
+        setIsShownError(false);
+        changeVisibility();
         const client = new PocketBase('http://localhost:8090');
 
         client.Records.getOne("bike_service_app", caseNumber)
@@ -74,6 +77,19 @@ function Header() {
             </div>
             {isShownCase && (caseDataDiv)}
             {isShownError && (caseNotFound)}
+            <div className="service_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut
+                autem corporis delectus deserunt dicta doloremque earum est explicabo fuga hic illo incidunt ipsam iure
+                laborum laudantium maxime natus necessitatibus nisi non odit possimus, praesentium quia quibusdam quidem
+                quod temporibus totam unde velit voluptatibus. Architecto dicta dolores incidunt ipsa itaque recusandae
+                vel. A accusamus ad aliquid blanditiis dolorem earum enim fuga fugit hic illo inventore ipsum laborum,
+                magni minus nobis nulla omnis optio quasi quidem quos rerum tempora tempore temporibus unde veniam
+                voluptas voluptatibus. Dolor enim officia officiis veniam! Debitis esse itaque iusto, mollitia
+                necessitatibus praesentium qui quia. Animi commodi consectetur cumque dolores, esse et exercitationem
+                expedita incidunt inventore iusto labore libero maiores molestiae nulla praesentium, quisquam quo quos
+                ratione, vel voluptatem? Cumque facere, nisi. Architecto asperiores aut commodi facilis ipsum nemo nisi
+                praesentium quam sequi soluta! Accusantium commodi ducimus, ea eligendi illo praesentium vitae?
+                Architecto hic nihil officiis totam.
+            </div>
         </header>
     );
 }

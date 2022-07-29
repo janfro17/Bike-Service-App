@@ -7,15 +7,15 @@ import Footer from "./components/Footer.jsx";
 import {DateProvider} from "./components/DateContext.jsx";
 
 
-const App = () => {
 
+const App = () => {
 
     return (
         <>
             <DateProvider>
                 <Header/>
-                <Cal/>;
-                <FormData/>
+                <Cal />
+               < FormData />
                 <Footer/>
             </DateProvider>
         </>

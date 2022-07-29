@@ -1,13 +1,20 @@
 import {Alert, Calendar, Badge} from 'antd';
 import moment from 'moment';
 import React from 'react';
-import {useState, useContext} from "react";
+import {useState, useContext, useEffect} from "react";
 import DateContext from "./DateContext.jsx";
 import PocketBase from "pocketbase";
 
 
 const Cal = () => {
     const {dataFiltered, changeDataFiltered} = useContext(DateContext);
+
+    useEffect(() => {
+        dateGetList();
+
+
+    }, []);
+
 
     const dateGetList = () => {
         const client = new PocketBase("http://localhost:8090");
@@ -46,35 +53,60 @@ const Cal = () => {
             </ul>
         );
     };
-    // const disabledDate = (value) => {
-    //     return !(value.day() === 5 || 6) ? true : false;
-    // }
-    const [value, setValue] = useState(moment());
-    const [selectedValue, setSelectedValue] = useState(moment());
+    const countDates = (arr) => {
+       return (
+           arr.reduce((accumulator, value) => {
+            return {...accumulator, [value]: (accumulator[value] || 0) + 1};
+        }, {})
+    )}
+
+   let countDatesObj = countDates(dataFiltered);
+
+    const countArr = Object.entries(countDatesObj);
+    const filteredArr = countArr.filter(([key, value]) => {
+      return value >= 4
+    });
+    const disabledDatesObj = Object.fromEntries(filteredArr);
+    const disabledDates = Object.keys(disabledDatesObj);
+
+    const disabledDate = (current) => {
+        return (
+           current && current < moment().endOf('day') ||
+            moment(current).day() === 0 ||
+               moment(current).day() === 6 ||
+               disabledDates.find(date => date === moment(current).format("DD/MM/YYYY"))
+            );
+    }
+
+    const [value, setValue] = useState();
+    const [selectedValue, setSelectedValue] = useState();
+
 
     const onSelect = (newValue) => {
         setValue(newValue);
         setSelectedValue(newValue);
+
     };
 
     const onPanelChange = (newValue) => {
         setValue(newValue);
-
     };
 
 
-    const selectedDate = selectedValue?.format('DD/MM/yyyy');
-    const {changeDate, isSubmit} = useContext(DateContext);
+    const selectedDate = () => {
+        return selectedValue === undefined ? "" : selectedValue?.format('DD/MM/yyyy');
+    }
+    const {changeDate, isSubmit, isVisible} = useContext(DateContext);
     changeDate(selectedDate);
-    dateGetList();
+
 
 
 
 
     return (
         <>
-            <Alert message={`Wybrana data: ${selectedValue?.format('DD/MM/yyyy')}`}/>
-            <Calendar dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange}/>;
+            {isVisible && <Alert message={`Wybrana data: ${selectedDate()}`}/>}
+            {isVisible && <Calendar disabledDate={disabledDate} dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange}/>}
         </>
     )
 };
