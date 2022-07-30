@@ -102,6 +102,26 @@ const FormData = () => {
             })
             .catch(error => {
                 console.log(error);
+                let errorData = error.data;
+                let keys = Object.keys(errorData.data);
+                let polishKeys = keys.map(item => {
+                    if (item === 'bike') {
+                        return 'Marka i model roweru'
+                    } else if (item === "surname") {
+                        return "Nazwisko"
+                    }else if (item === "name") {
+                        return "Imię"
+                    }else if (item === "email") {
+                        return "E-mail"
+                    }else if (item === "phone") {
+                        return "Nr kontaktowy"
+                    }else if (item === "statement") {
+                        return "Oświadczenie"
+                    }else if (item === "date") {
+                        return "Data serwisu"
+                    }
+                });
+                alert(`Błędne dane lub brak: ${polishKeys}`);
 
             });
 

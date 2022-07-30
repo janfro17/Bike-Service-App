@@ -12,7 +12,15 @@
 .case_accepted {
   background-color: $orange;
   border-radius: $radius;
-  padding: 10px;
+  padding: 50px;
   text-align: center;
   @include standard-text;
+  max-width: 1440px;
+  margin: 0 auto;
+  border: 5px dotted $black;
+}
+
+.form {
+  background-color: $grey !important;
+  padding: 20px !important;
 }

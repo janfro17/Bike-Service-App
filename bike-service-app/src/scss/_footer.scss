@@ -2,7 +2,8 @@
 @import "mixinss";
 
 .footer {
-    background-color: $grey;
+    padding: 0 10px;
+    background-color: $orange;
     border-radius: $radius;
     @include standard-text;
     @include tablet{

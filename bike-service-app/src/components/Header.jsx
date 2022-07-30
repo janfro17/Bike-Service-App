@@ -39,11 +39,12 @@ function Header() {
     }
 
 
-    const caseDataDiv = <div className='case_data'>
+    const caseDataDiv = <div className='case_data container'>
         <h2>Szczegóły sprawy serwisowej:</h2>
         <p><strong>Nr sprawy:</strong> {JSON.stringify(caseData.id)}</p>
         <p><strong>Data zgłoszenia:</strong> {JSON.stringify(caseData.created)}</p>
         <p><strong>Data serwisu:</strong> {JSON.stringify(caseData.date)}</p>
+        <p><strong>Marka i model roweru:</strong> {JSON.stringify(caseData.bike)}</p>
         <p><strong>Status sprawy serwisowej: </strong><span>ZGŁOSZENIE PRZYJĘTE</span></p>
         <h2>Dane klienta: </h2>
         <p><strong>Imię:</strong> {JSON.stringify(caseData.name)}</p>
