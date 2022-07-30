@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixinss";
 
+
 .logo {
   display: flex;
   justify-content: center;
@@ -9,26 +10,56 @@
   img {
     height: 100px;
     width: 100px;
+    margin-right: 20px;
   }
 }
 
 .logo_title {
   font-family: $rubik;
-  line-height: 100px;
-  font-size: 62px;
+  line-height: 50px;
+  font-size: 48px;
   font-weight: $font-extrabold;
   text-transform: uppercase;
   margin: 0;
-
-
-
+  @include tablet {
+    line-height: 100px;
+    font-size: 62px;
+  }
 }
 
 .login_box {
+  padding: 10px 0;
   background-color: $grey;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @include standard-text;
+}
+.checkout_box {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
+  label, input, button {
+    margin: 5px 0;
+    @include tablet {
+      margin: 0 10px 0 0;
+    }
+  }
+  label {
+    font-size: 24px;
+    font-weight: $font-bold;
+  }
+  button {
+    padding: 5px 20px;
+  }
+}
+.input_case {
+  border-radius: $radius;
 }
 
 .case_data {
@@ -47,5 +78,15 @@
       font-weight: $font-bold;
       font-size: 20px;
     }
+  }
+}
+.service_description {
+  @include standard-text;
+  padding: 20px 0;
+  text-align: justify;
+  h3{
+    @include section-title {
+      padding: 5px 0;
+    };
   }
 }

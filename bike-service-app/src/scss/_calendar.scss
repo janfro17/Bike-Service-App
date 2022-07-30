@@ -1,3 +1,22 @@
+@import "variables";
+@import "mixinss";
+
+.alert  {
+background-color: $orange !important;
+  border-radius: $radius !important;
+  @include standard-text{
+    line-height: 40px !important;
+    font-weight: $font-bold;
+  };
+}
 .calendar {
-  padding: 0 20px;
+  @include standard-text;
+}
+.events {
+  li {
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
 }

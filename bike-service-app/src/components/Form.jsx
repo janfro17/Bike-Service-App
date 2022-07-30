@@ -27,6 +27,7 @@ const FormData = () => {
         surname: "",
         email: "",
         phone: "",
+        bike: "",
         additional: "",
     });
     const [service, setService] = useState("SERWIS KOMPLEKSOWY");
@@ -45,6 +46,7 @@ const FormData = () => {
         surname: data.surname,
         email: data.email,
         phone: data.phone,
+        bike: data.bike,
         service: service,
         additional: data.additional,
         statement: checked,
@@ -91,15 +93,18 @@ const FormData = () => {
                     surname: "",
                     email: "",
                     phone: "",
+                    bike: "",
                     service: "SERWIS KOMPLEKSOWY",
                     additional: "",
                 });
                 changeVisibility();
+                addService();
             })
             .catch(error => {
                 console.log(error);
+
             });
-        addService();
+
 
     }
 
@@ -107,6 +112,7 @@ const FormData = () => {
     return (
         <>
             {isVisible && <Form
+                className='container form'
                 labelCol={{
                     span: 4,
                 }}
@@ -116,7 +122,7 @@ const FormData = () => {
                 layout="horizontal"
             >
                 <Form.Item
-
+                    className='form_item'
                     label="Wybrana data serwisu"
                     tooltip="Wybierz datę na kalendarzu"
                     rules={[
@@ -203,6 +209,23 @@ const FormData = () => {
                         }}
                     />
                 </Form.Item>
+                <Form.Item
+
+                    label="Marka i model roweru"
+                    tooltip="Podaj markę i/lub model swojego roweru"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Podaj markę roweru!',
+                            whitespace: true,
+                        },
+                    ]}
+                >
+                    <Input value={data.bike}
+                           onChange={handleChange}
+                           name="bike"
+                    />
+                </Form.Item>
                 <Form.Item label="Wybierz rodzaj serwisu"
 
                            initialValue='SERWIS KOMPLEKSOWY'
@@ -244,14 +267,16 @@ const FormData = () => {
                         onChange={handleChecked}
                     >Akceptuję regulamin i cennik serwisu</Checkbox>
                 </Form.Item>
-                <Form.Item>
-                    <Button type='submit'
+                <Form.Item >
+                    <Button className='button'
+                        type='submit'
                             name='submit'
                             onClick={handleSubmit}
+
                     >Zarezerwuj serwis</Button>
                 </Form.Item>
             </Form>}
-            {!isVisible && <div><h2>Zgłoszenie zostało przyjęte. Nr naprawy: <strong>{caseNumber}</strong></h2>
+            {!isVisible && <div className='case_accepted'><h2>Zgłoszenie zostało przyjęte. Nr naprawy: <strong>{caseNumber}</strong></h2>
                 <p>Zapisz numer naprawy w celu sprawdzenia jej statusu.</p></div>}
         </>
     );

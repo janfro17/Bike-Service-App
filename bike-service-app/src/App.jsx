@@ -15,7 +15,7 @@ const App = () => {
             <DateProvider>
                 <Header/>
                 <Cal />
-               < FormData />
+                <FormData />
                 <Footer/>
             </DateProvider>
         </>

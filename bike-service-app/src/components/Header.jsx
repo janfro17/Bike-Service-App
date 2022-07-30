@@ -10,7 +10,7 @@ function Header() {
     const [caseData, setCaseData] = useState({});
     const [isShownCase, setIsShownCase] = useState(false);
     const [isShownError, setIsShownError] = useState(false);
-    const {changeVisibility} = useContext(DateContext);
+    const {changeVisibility, isVisible} = useContext(DateContext);
 
     const checkNumber = (e) => {
         e.preventDefault();
@@ -58,14 +58,15 @@ function Header() {
 
 
     return (
-        <header>
+        <header className="container">
             <div className="logo">
                 <img src={imgURL} alt="logo"/>
                 <h2 className="logo_title">Bike Service</h2>
             </div>
             <div className="login_box">
-                <div className="checkout_box"><label htmlFor='case_number'>Wpisz nr naprawy </label>
-                    <input name='case_number' onChange={e => setCaseNumber(e.target.value)} value={caseNumber}
+                <div className="checkout_box">
+                    <label htmlFor='case_number'>Wpisz nr naprawy </label>
+                    <input className='input_case' name='case_number' onChange={e => setCaseNumber(e.target.value)} value={caseNumber}
                            type="text"/>
                     <button onClick={checkNumber} className="checkout_case">
                         Sprawdź status naprawy
@@ -77,7 +78,9 @@ function Header() {
             </div>
             {isShownCase && (caseDataDiv)}
             {isShownError && (caseNotFound)}
-            <div className="service_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut
+            {isVisible && <div className="service_description">
+                <h3>Zarezerwuj serwis</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut
                 autem corporis delectus deserunt dicta doloremque earum est explicabo fuga hic illo incidunt ipsam iure
                 laborum laudantium maxime natus necessitatibus nisi non odit possimus, praesentium quia quibusdam quidem
                 quod temporibus totam unde velit voluptatibus. Architecto dicta dolores incidunt ipsa itaque recusandae
@@ -88,8 +91,8 @@ function Header() {
                 expedita incidunt inventore iusto labore libero maiores molestiae nulla praesentium, quisquam quo quos
                 ratione, vel voluptatem? Cumque facere, nisi. Architecto asperiores aut commodi facilis ipsum nemo nisi
                 praesentium quam sequi soluta! Accusantium commodi ducimus, ea eligendi illo praesentium vitae?
-                Architecto hic nihil officiis totam.
-            </div>
+                    Architecto hic nihil officiis totam.</p>
+            </div>}
         </header>
     );
 }

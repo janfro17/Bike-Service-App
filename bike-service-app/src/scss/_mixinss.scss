@@ -1,3 +1,4 @@
+@import "variables";
 //Media query
 @mixin tablet {
   @media (min-width: #{$tablet-width}) {
@@ -13,48 +14,48 @@
 
 @mixin cta-button {
   align-items: center;
-  background-clip: padding-box;
-  background-color: $orange;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
-  box-sizing: border-box;
-  color: $white;
-  cursor: pointer;
-  display: inline-flex;
-  font-family: $rubik;
-  font-size: 16px;
-  font-weight: $font-bold;
-  letter-spacing: 0.5px;
-  justify-content: center;
-  line-height: 1.25;
+  background-clip: padding-box !important;
+  background-color: $orange !important;
+  border: 1px solid transparent !important;
+  border-radius: .25rem !important;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0 !important;
+  box-sizing: border-box !important;
+  color: $white !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  font-family: $rubik !important;
+  font-size: 16px !important;
+  font-weight: $font-bold !important;
+  letter-spacing: 0.5px !important;
+  justify-content: center !important;
+  line-height: 1.25 !important;
   margin: 0;
-  min-height: 3rem;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 250ms;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  width: auto;
+  min-height: 3rem !important;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px) !important;
+  position: relative !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  transition: all 250ms !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+  vertical-align: baseline !important;
+  width: auto !important;
 
   &:hover, :focus {
-    background-color: #fb8332;
-    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-    color: $black;
+    background-color: #fb8332 !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px !important;
+    color: $black !important;
   }
 
   &:hover {
-    transform: translateY(-1px);
+    transform: translateY(-1px) !important;
   }
 
   &:active {
-    background-color: #c85000;
-    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
-    transform: translateY(0);
+    background-color: #c85000 !important;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px !important;
+    transform: translateY(0) !important;
   }
 }
 

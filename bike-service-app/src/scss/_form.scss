@@ -1,0 +1,18 @@
+@import "variables";
+@import "mixinss";
+
+
+.button {
+  align-self: center;
+  @include tablet {
+    margin-left: 500px;
+  }
+  @include cta-button;
+}
+.case_accepted {
+  background-color: $orange;
+  border-radius: $radius;
+  padding: 10px;
+  text-align: center;
+  @include standard-text;
+}

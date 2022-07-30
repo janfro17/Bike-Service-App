@@ -105,8 +105,8 @@ const Cal = () => {
 
     return (
         <>
-            {isVisible && <Alert message={`Wybrana data: ${selectedDate()}`}/>}
-            {isVisible && <Calendar disabledDate={disabledDate} dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange}/>}
+            {isVisible && <Alert className='container alert' message={`Wybrana data: ${selectedDate()}`}/>}
+            {isVisible && <Calendar className='container calendar' disabledDate={disabledDate} dateCellRender={dateCellRender} value={value} onSelect={onSelect} onPanelChange={onPanelChange}/>}
         </>
     )
 };
