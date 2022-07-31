@@ -7,7 +7,8 @@ Customer can easily and transparently check which dates are available on the cal
 and choose the most convenient one. After correctly entering the basic data 
 in the application form, the acceptance of the application is confirmed and 
 the case number is displayed. The case number can be used by the customer 
-to check the repair status.  
+to check the repair status. The landing page and the application are created in the mobile firts approach 
+and are fully adapted to the mobile devices, tablets and desktops.
 
 
 ## Screenshots
