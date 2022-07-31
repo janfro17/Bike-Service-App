@@ -12,8 +12,8 @@ to check the repair status.
 
 ## Screenshots
 
-![App Screenshot](https://postimg.cc/626SG5s9)
-![App Screenshot](https://postimg.cc/G8MfPwrv)
+[![Screenshot-1.png](https://i.postimg.cc/3N7HTYcf/Screenshot-from-2022-07-30-07-01-22.png)](https://postimg.cc/G8MfPwrv)
+[![Screenshot-2.png](https://i.postimg.cc/9MyjKrJq/Screenshot-from-2022-07-30-07-01-14.png)](https://postimg.cc/626SG5s9)
 
 
 ## Tech Stack
