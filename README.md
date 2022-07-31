@@ -1,7 +1,7 @@
 
 # Bike Service App
 
-An professional and inviting landing page of bike service company with 
+A professional landing page of bike service company with 
 the application for sending service requests and controlling the repair status. 
 Customer can easily and transparently check which dates are available on the calendar 
 and choose the most convenient one. After correctly entering the basic data 
