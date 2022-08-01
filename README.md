@@ -15,6 +15,8 @@ and are fully adapted to the mobile devices, tablets and desktops.
 
 [![Screenshot-1.png](https://i.postimg.cc/3N7HTYcf/Screenshot-from-2022-07-30-07-01-22.png)](https://postimg.cc/G8MfPwrv)
 [![Screenshot-2.png](https://i.postimg.cc/9MyjKrJq/Screenshot-from-2022-07-30-07-01-14.png)](https://postimg.cc/626SG5s9)
+[![screenshot4.png](https://i.postimg.cc/2j7SqRSd/screenshot4.png)](https://postimg.cc/kDDmZH8D)
+[![screenshot3.png](https://i.postimg.cc/jd8qXHNL/screenshot3.png)](https://postimg.cc/BXKGZ1m0)
 
 
 ## Tech Stack
@@ -23,17 +25,5 @@ and are fully adapted to the mobile devices, tablets and desktops.
 
 **Database:** Pocketbase
 
-**Bundler** vite.js
-
-
-## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| grey | ![#e5e5e5](https://via.placeholder.com/10/0a192f?text=+) #e5e5e5 |
-| orange | ![#fca311](https://via.placeholder.com/10/f8f8f8?text=+) #fca311 |
-| black | ![#000000](https://via.placeholder.com/10/00b48a?text=+) #000000 |
-| white | ![#ffffff](https://via.placeholder.com/10/00b48a?text=+) #ffffff |
-| navy | ![#14213d](https://via.placeholder.com/10/00b48a?text=+) #14213d |
-
+**Bundler:** vite.js
 
