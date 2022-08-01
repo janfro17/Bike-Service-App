@@ -23,6 +23,9 @@ and are fully adapted to the mobile devices, tablets and desktops.
 
 **Database:** Pocketbase
 
+**Bundler** vite.js
+
+
 ## Color Reference
 
 | Color             | Hex                                                                |
